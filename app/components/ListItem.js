@@ -1,37 +1,57 @@
 import React from "react";
 import { View, StyleSheet, Image, TouchableHighlight } from "react-native";
+import {
+  GestureHandlerRootView,
+  Swipeable,
+} from "react-native-gesture-handler";
 
 import colors from "../config/colors";
 import AppText from "./AppText";
 
-function ListItem({ image, title, subTitle }) {
+function ListItem({
+  image,
+  title,
+  subTitle,
+  renderRightActions,
+  imagePlaceholder,
+}) {
   return (
-    <TouchableHighlight
-      underlayColor={colors.light}
-      onPress={() => console.log("")}
-    >
-      <View style={styles.container}>
-        <Image style={styles.image} source={image} />
-        <View>
-          <AppText style={styles.title}>{title}</AppText>
-          <AppText style={styles.subTitle}>{subTitle}</AppText>
-        </View>
-      </View>
-    </TouchableHighlight>
+    <GestureHandlerRootView>
+      <Swipeable renderRightActions={renderRightActions}>
+        <TouchableHighlight
+          underlayColor={colors.light}
+          onPress={() => console.log("")}
+        >
+          <View style={styles.container}>
+            {imagePlaceholder}
+            {image && <Image style={styles.image} source={image} />}
+            <View style={styles.details}>
+              <AppText style={styles.title}>{title}</AppText>
+              {subTitle && (
+                <AppText style={styles.subTitle}>{subTitle}</AppText>
+              )}
+            </View>
+          </View>
+        </TouchableHighlight>
+      </Swipeable>
+    </GestureHandlerRootView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    padding: 15,
     alignItems: "center",
+    padding: 10,
+    backgroundColor: colors.white,
+  },
+  details: {
+    marginLeft: 10,
   },
   image: {
-    width: 90,
-    height: 90,
-    borderRadius: 45,
-    marginRight: 10,
+    width: 80,
+    height: 80,
+    borderRadius: 40,
   },
   title: {
     fontSize: 18,
