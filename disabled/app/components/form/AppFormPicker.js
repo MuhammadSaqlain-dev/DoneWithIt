@@ -1,5 +1,5 @@
 import React from "react";
-import AppPicker from "./AppPicker";
+import AppPicker from "../AppPicker";
 import { useFormikContext } from "formik";
 
 function AppFormPicker({ items, name, placeholder }) {
