@@ -11,16 +11,16 @@ import {
 const initialMessages = [
   {
     id: 1,
-    title: "Mosh Hamedani",
+    title: "Muhammad Saqlain",
     description: "Hey! Is this item still available?",
-    image: require("../assets/mosh.jpg"),
+    image: require("../assets/saqlain.png"),
   },
   {
     id: 2,
-    title: "Mosh Hamedani",
+    title: "Muhammad Saqlain",
     description:
       "I'm interested in this item. When will you be able to post it?",
-    image: require("../assets/mosh.jpg"),
+    image: require("../assets/saqlain.png"),
   },
 ];
 
@@ -57,7 +57,7 @@ function MessagesScreen(props) {
               id: 2,
               title: "T2",
               description: "D2",
-              image: require("../assets/mosh.jpg"),
+              image: require("../assets/saqlain.png"),
             },
           ]);
         }}
