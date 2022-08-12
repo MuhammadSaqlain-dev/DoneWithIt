@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { FlatList, StyleSheet } from "react-native";
 
 import Card from "../components/Card";
@@ -17,18 +17,16 @@ function ListingsScreen({ navigation }) {
   useEffect(() => {
     request();
   }, []);
-  console.log(error);
 
   return (
     <Screen style={styles.screen}>
+      <ActivityIndicator visible={loading} />
       {error && (
         <>
-          <AppText>Could'nt retrieve the listings.</AppText>
-          <AppButton title={"Retry"} onPress={request} />
+          <AppText>Could'nt retrieve listings.</AppText>
+          <AppButton title={"Try Again"} onPress={request} />
         </>
       )}
-
-      <ActivityIndicator visible={loading} />
       <FlatList
         data={data}
         keyExtractor={(listing) => listing.id.toString()}

@@ -7,7 +7,6 @@ import Text from "../components/Text";
 
 function ListingDetailsScreen({ route }) {
   const listing = route.params;
-  console.log(listing);
 
   return (
     <View>
