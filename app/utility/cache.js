@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import moment from "moment";
+import dayjs from "dayjs";
 
 const prefix = "cache";
 // I am not implementing Image Caching at this point...
@@ -16,9 +16,9 @@ const store = async (key, value) => {
 };
 
 const isExpired = (item) => {
-  const now = moment(Date.now());
-  const storedTime = item.timeStamp;
-  return now.diff(storedTime, "minute") > 5;
+  const now = dayjs();
+  const storedTime = dayjs(item.timeStamp);
+  return now.diff(storedTime, "minute") > 3;
 };
 
 const get = async (key) => {
