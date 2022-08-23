@@ -4,6 +4,7 @@ import { View, Image, StyleSheet } from "react-native";
 import colors from "../config/colors";
 import ListItem from "../components/lists/ListItem";
 import Text from "../components/Text";
+import ContactSellerForm from "../components/ContactSellerForm";
 
 function ListingDetailsScreen({ route }) {
   const listing = route.params;
@@ -16,11 +17,12 @@ function ListingDetailsScreen({ route }) {
         <Text style={styles.price}>{"$" + listing.price}</Text>
         <View style={styles.userContainer}>
           <ListItem
-            image={require("../assets/mosh.jpg")}
-            title="Mosh Hamedani"
+            image={require("../assets/saqlain.png")}
+            title="Muhammad Saqlain"
             subTitle="5 Listings"
           />
         </View>
+        <ContactSellerForm listing={listing} />
       </View>
     </View>
   );
@@ -28,24 +30,24 @@ function ListingDetailsScreen({ route }) {
 
 const styles = StyleSheet.create({
   detailsContainer: {
-    padding: 20,
+    padding: 15,
   },
   image: {
     width: "100%",
-    height: 300,
+    height: 250,
   },
   price: {
     color: colors.secondary,
     fontWeight: "bold",
-    fontSize: 20,
-    marginVertical: 10,
+    fontSize: 18,
+    marginVertical: 8,
   },
   title: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: "500",
   },
   userContainer: {
-    marginVertical: 40,
+    marginVertical: 8,
   },
 });
 
