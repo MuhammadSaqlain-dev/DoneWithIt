@@ -1,9 +1,11 @@
 import { create } from "apisauce";
 import authStorage from "../auth/authStorage";
 import cache from "../utility/cache";
+import logger from "../utility/logger";
+import settings from "../config/settings";
 
 const clientApi = create({
-  baseURL: "http://192.168.0.105:9000/api",
+  baseURL: settings.apiUrl,
 });
 
 clientApi.addAsyncRequestTransform(async (request) => {
@@ -22,7 +24,7 @@ clientApi.get = async (url, params, axiosConfig) => {
   }
 
   const data = await cache.get(url);
-  console.log("data", data);
+  logger.log("data", data);
   return data ? { ok: true, data } : response;
 };
 

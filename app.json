@@ -14,7 +14,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -23,11 +25,20 @@
         "foregroundImage": "./app/assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "useNextNotificationsApi": true
+      "useNextNotificationsApi": true,
+      "package": "com.musaqlain.DoneWithIt"
     },
     "web": {
       "favicon": "./app/assets/favicon.png"
     },
+    "extra": {
+      "bugsnag": {
+        "apiKey": "4c2633a560a3b9be1856a936ae35befc"
+      }
+    },
+    "plugins": [
+      "@bugsnag/plugin-expo-eas-sourcemaps"
+    ],
     "description": "Sell the stuff that you don't need anymore..."
   }
 }

@@ -8,6 +8,9 @@ import AuthNavigator from "./app/navigation/AuthNavigator";
 import authContext from "./app/auth/authContext";
 import authStorage from "./app/auth/authStorage";
 import { navigationRef } from "./app/navigation/rootNavigation";
+import logger from "./app/utility/logger";
+
+logger.start();
 
 import "./ignoreWarnings";
 

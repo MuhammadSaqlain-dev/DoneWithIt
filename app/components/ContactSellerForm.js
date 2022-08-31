@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { Form, FormField, SubmitButton } from "./forms";
 import messagesApi from "../api/messages";
 import * as Notifications from "expo-notifications";
+import logger from "../utility/logger";
 
 function ContactSellerForm({ listing }) {
   const handleSubmit = async ({ message }, { resetForm }) => {
@@ -13,13 +14,11 @@ function ContactSellerForm({ listing }) {
     const result = await messagesApi.send(message, listing.id);
 
     if (!result.ok) {
-      console.log("Error while sending message: ", result);
+      logger.log("Error while sending message: ", result);
       return Alert.alert("Error", "Could'nt sent the message to the seller.");
     }
 
     resetForm();
-    console.log("Message send..");
-
     Notifications.scheduleNotificationAsync({
       content: {
         title: "Congrats!",
@@ -39,7 +38,6 @@ function ContactSellerForm({ listing }) {
     >
       <FormField
         maxLength={255}
-        multiline
         name="message"
         numberOfLines={3}
         placeholder="Message..."
